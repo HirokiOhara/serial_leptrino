@@ -1,6 +1,6 @@
 # serial_leptrino
 
-This is a Processing code to communicate with sensor of Leptrino.
+This is Processing code to communicate with sensor of Leptrino.
 
 
 Copyright (c) 2013 Hiroki Ohara
