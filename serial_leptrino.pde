@@ -37,31 +37,31 @@ void setup() {
   //sendMsg(myPort, checkProductInfo);
   
   /* For Graphic Animation */
-  //size(500, 500, P3D);
-  //background(195, 0, 16);
-  //camera(70.0, 35.0, 120.0, width/2, height/2, 0, 0.0, 1.0, 0.0);
-  //frameRate(120);
+  size(500, 500, P3D);
+  background(195, 0, 16);
+  camera(70.0, 35.0, 120.0, width/2, height/2, 0, 0.0, 1.0, 0.0);
+  frameRate(120);
 }
 
 void draw() {
-  ////環境光
-  //ambientLight(63, 31, 31);
-  ////平行光
-  //directionalLight(255, 255, 255, -1, 0, 0);
-  ////点光源
-  //pointLight(63, 127, 255, 0, 0, 200);
-  //background(255);
-  //translate(width/2, height/2);
-  //fill(255,255,255);
-  //box(300, 0, 300);
-  //sphereDetail(12, 6);
-  //stroke(128);
-  //noFill();
-  //sphere(100);
+  //環境光
+  ambientLight(63, 31, 31);
+  //平行光
+  directionalLight(255, 255, 255, -1, 0, 0);
+  //点光源
+  pointLight(63, 127, 255, 0, 0, 200);
+  background(255);
+  translate(width/2, height/2);
+  fill(255,255,255);
+  box(300, 0, 300);
+  sphereDetail(12, 6);
+  stroke(128);
+  noFill();
+  sphere(100);
   
-  //pushMatrix();
-  //yz();
-  //popMatrix();
+  pushMatrix();
+  yz();
+  popMatrix();
 }
 
 void mousePressed() {
@@ -186,7 +186,7 @@ void calForce(byte[] res) {
         if (calib) {
           calibValueList[j] = ratedValueList[j] * F/10000;
         }
-        //println(ratedValueList[j] * F/10000 - calibValueList[j]);
+        println(ratedValueList[j] * F/10000 - calibValueList[j]);
         calculatedList[j] = ratedValueList[j] * F/10000 - calibValueList[j];
       } else
         println("error");
@@ -198,71 +198,71 @@ void calForce(byte[] res) {
 }
 
 
-//void yz() {
-//  rotateX(frameCount*calculatedList[4]*PI/180.0);
-//  sphereDetail(10);
-//  stroke(255, 0, 0);
-//  noFill();
-//  //noStroke();
-//  //fill(0, 255, 0);
+void yz() {
+  rotateX(frameCount*calculatedList[4]*PI/180.0);
+  sphereDetail(10);
+  stroke(255, 0, 0);
+  noFill();
+  //noStroke();
+  //fill(0, 255, 0);
   
-//  pushMatrix();
-//  translate(0, -100 * sqrt(3) / 2, 50);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, -100 * sqrt(3) / 2, 50);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, 50, -100 * sqrt(3) / 2);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, 50, -100 * sqrt(3) / 2);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, -100 * sqrt(3) / 2, -50);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, -100 * sqrt(3) / 2, -50);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, -50, -100 * sqrt(3) / 2);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, -50, -100 * sqrt(3) / 2);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, 100 * sqrt(3) / 2, -50);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, 100 * sqrt(3) / 2, -50);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, -50, 100 * sqrt(3) / 2);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, -50, 100 * sqrt(3) / 2);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, 100 * sqrt(3) / 2, 50);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, 100 * sqrt(3) / 2, 50);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, 50, 100 * sqrt(3) / 2);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, 50, 100 * sqrt(3) / 2);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, 100, 0);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, 100, 0);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, -100, 0);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, -100, 0);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, 0, 100);
-//  sphere(10);
-//  popMatrix();
+  pushMatrix();
+  translate(0, 0, 100);
+  sphere(10);
+  popMatrix();
   
-//  pushMatrix();
-//  translate(0, 0, -100);
-//  sphere(10);
-//  popMatrix();
-//}
+  pushMatrix();
+  translate(0, 0, -100);
+  sphere(10);
+  popMatrix();
+}
