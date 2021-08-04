@@ -1,13 +1,10 @@
 /* //<>//
-
  Designed by Hiroki OHARA
  MIT license
  
  X-axis: to the beyond
  Y-axis: to the down side
- Z-axis: to the right side
- 
- */
+ Z-axis: to the right side */
 
 
 import processing.serial.*; //<>//
@@ -43,15 +40,23 @@ byte filter = 0x00;
 // 100Hz: 0x03;
 byte[] setDigitalFilter = {0x08, (byte)0xFF, (byte)0xA6, filter, 0x00, 0x00, 0x00};
 
+boolean connecting = false;
+
 void setup() {
-  myPort = portOpen();
+  if (Serial.list().length >= 5)
+    connecting = true;
+  if (connecting) {
+    myPort = portOpen();
+    myPort.clear();
+    sendMsg(myPort, checkRatedValue);
+    //sendMsg(myPort, checkProductInfo);
+  }
   file = createWriter("test.csv");
   time = 5000;
-  sendMsg(myPort, checkRatedValue);
-  //sendMsg(myPort, checkProductInfo);
+  
 
   /* For Graphic Animation */
-  size(500, 500, P3D);
+  size(400, 400, P3D);
   background(195, 0, 16);
   if (lefty)
     camera(70.0, 35.0, 120.0, width/2, height/2, 0, 0.0, 1.0, 0.0);
@@ -61,16 +66,17 @@ void setup() {
 }
 
 void draw() {
-  //環境光
-  ambientLight(63, 31, 31);
-  //平行光
-  directionalLight(255, 255, 255, -1, 0, 0);
-  //点光源
-  pointLight(63, 127, 255, 0, 0, 200);
+  ////環境光
+  //ambientLight(63, 31, 31);
+  ////平行光
+  //directionalLight(255, 255, 255, -1, 0, 0);
+  ////点光源
+  //pointLight(63, 127, 255, 0, 0, 200);
   background(255);
   translate(width/2, height/2, 0);
   fill(255, 255, 255);
-  //box(300, 0, 300);
+  stroke(255);
+  box(300, 0, 300);
   stroke(0);
   sphereDetail(12, 6);
   stroke(230);
@@ -93,7 +99,7 @@ void draw() {
 
 
 void mousePressed() {
-  if (!running) {
+  if (!running && connecting) {
     running = true;
     thread("SubThread");
   }
